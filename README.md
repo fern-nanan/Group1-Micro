@@ -1,4 +1,3 @@
-# Group1-Micro
 # Enterprise Income Category Ledger
 
 A simple web page for registering income categories and viewing them in a table. Built with HTML, Bootstrap 5, and plain JavaScript (no frameworks).
@@ -8,6 +7,7 @@ A simple web page for registering income categories and viewing them in a table.
 - You type a **Category Name** and a **Description**, then click **Save Category**.
 - The new category is added as a row at the bottom of the **Registered Categories** table.
 - Each row has a red **Delete** button that removes just that row.
+- A **Delete All** button above the table clears every row at once.
 - If you click Save Category without filling in both fields, an alert pops up and no row is added.
 
 ## Project Structure
@@ -28,6 +28,7 @@ income-ledger/
 3. **app.js** does the actual work:
    - Listens for a click on **Save Category**, reads the two input boxes, checks they aren't empty, then builds and inserts a new table row (including a Delete button).
    - Listens for clicks anywhere inside the table body. If the click came from a Delete button, it finds that button's parent row using `event.target.closest('tr')` and removes it with `.remove()`.
+   - Listens for a click on **Delete All** and clears the entire table by setting the table body's `innerHTML` to an empty string.
    - Clears the input boxes and refocuses the Category Name box after each save.
 
 ## Key Concepts Demonstrated
