@@ -8,6 +8,8 @@ const categoryDescInput = document.getElementById("txtCatDesc");
 const addCategoryBtn = document.getElementById("btnAdd");
 // Grab the <tbody> element where new table rows will be added.
 const incomeTableBody = document.getElementById("listIncomeCat");
+// Grab the "Delete All" button so we can listen for clicks on it.
+const deleteAllBtn = document.getElementById("btnDeleteAll");
 
 // 2. Attach Non-Inline Event Listener
 
@@ -88,3 +90,16 @@ incomeTableBody.addEventListener("click", function (event) {
     event.target.closest('tr').remove();
   }
 });
+
+// 5. Delete All Button Handling
+
+// When the "Delete All" button is clicked, run the handleDeleteAll function.
+deleteAllBtn.addEventListener("click", handleDeleteAll);
+
+// This function clears every row currently in the table at once.
+function handleDeleteAll() {
+
+  // Setting innerHTML to an empty string wipes out all the <tr> rows
+  // inside the table body in one step, without needing a loop.
+  incomeTableBody.innerHTML = "";
+}
